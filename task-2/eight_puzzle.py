@@ -49,6 +49,22 @@ def h1(s):
     return res
 
 def h3(s):
-    # implement this function
-    board, _, _ = s
-    return 0
+    board = s[0]  
+    goal = (1, 2, 3, 4, 5, 6, 7, 8, 0)  
+    total_manhattan_distance = 0  
+    
+    for idx, val in enumerate(board):
+        if val == 0:
+            continue  
+        goal_idx = goal.index(val)  
+        x1, y1 = idx // 3, idx % 3
+        x2, y2 = goal_idx // 3, goal_idx % 3
+        manhattan_distance = abs(x1 - x2) + abs(y1 - y2)
+        total_manhattan_distance += manhattan_distance
+    
+    return total_manhattan_distance
+
+
+
+
+
